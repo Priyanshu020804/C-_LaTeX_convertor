@@ -1,0 +1,36 @@
+The above file contains a simple web page which takes user input in format of text.
+
+This code is a small web application built using the Flask framework in Python. 
+Flask is a micro web framework that helps to build web applications quickly and easily.
+
+The first line imports the Flask library, the request object, 
+and the render_template function, which is used to render a template HTML file.
+
+The second line creates an instance of the Flask class and assigns it to the variable "app". 
+The argument passed to the Flask class is name, which is a special variable in Python that is equal to the name of the current module (in this case the script being executed).
+
+The code then defines a function named "cpp_to_latex", which is decorated by the "@app.route" decorator. 
+This decorator is used to define the URLs that the function will be associated with. 
+In this case, the function will be associated with the root '/' URL and can handle both GET and POST requests.
+
+The function checks the request method, if it's a POST request, 
+it retrieves the code from the 'code' field in the request form and creates a new string 'latex_code' by concatenating some latex code with the original code. 
+Then it returns the 'index.html' template with the 'latex_code' variable passed to it. If it's a GET request, it just returns the 'index.html' template.
+
+The minted package is a LaTeX package that provides syntax highlighting for a variety of programming and markup languages. 
+It uses the Pygments library, a syntax highlighting engine written in Python, to highlight the code.
+
+The package provides a minted environment, which is used to typeset the highlighted code. 
+The environment accepts several options, such as bgcolor, fontsize, rulecolor, linenos, escapeinside, 
+xleftmargin, xrightmargin, numbersep, frame, framesep, and fontfamily which can be used to customize the appearance of the highlighted code.
+
+In this code, the code is passed inside a minted environment where it is highlighted as C++ code. 
+The options passed to the minted environment are used to change the appearance of the highlighted code, 
+for example, the background color is set to gray with 30% opacity, and font size is set to large, 
+and the line numbers are enabled. The 'escapeinside' option allows to escape the special characters in the code with '||'
+
+To use the minted package in a LaTeX document, it must be included in the preamble with the command \usepackage{minted} 
+and the highlighted code must be included inside a minted environment.
+
+Finally, the script checks if the current module is the main module and if so, 
+it runs the app using the run() method of the Flask class. The app is run with the debug mode enabled and the port number is set to 8000(on local host)
