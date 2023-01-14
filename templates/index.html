@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") no-repeat center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #header {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            padding: 2px;
+            font-weight: bolder;
+        }
+
+        #content {
+            margin: 20px;
+            font-size: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+        form {
+            align-items: center; 
+            justify-content: center; 
+            height: 100%; 
+        }
+
+        textarea {
+            width: 100%;
+            height: 17cm;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 25px;
+            resize: none;
+        }
+
+        input[type=submit] {
+            width: 400px; 
+            height: 60px;
+            font-size: 30px;
+            margin: 8px auto; 
+            background-color: white;
+            color: black;
+            padding: 8px 10px;
+            border: 2px solid green;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #4CAF50;
+            color: white;
+        }   
+        a:link, a:visited {
+            width: 380px; 
+            height: 30px;
+            font-size: 22px;
+            background-color: white;
+            color: black;
+            border: 2px solid green;
+            border-radius: 4px;
+            padding: 8px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        a:hover, a:active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        div#latex-code {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            text-align: left;
+        }
+        #copy-btn {
+            background-color: white;
+            color: black;
+            border: 2px solid green;
+            border-radius: 4px;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top:10px;
+        }
+        #copy-btn:hover,#copy-btn:active{
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ to LaTeX</title>
+    <script>
+        function copyCode() {
+            var code = document.querySelector("#latex-code pre");
+            var range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges(); 
+            window.getSelection().addRange(range); 
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            alert("LaTeX Text Copied")
+        }
+    </script>
+</head>
+<body>
+    <div id="header">
+        <h1>C++ To LaTeX Convertor</h1>
+    </div>
+    <div id="content">
+        <span>Enter your c++ code below</span>
+        <form method="post" action=".">
+            <textarea name="code" rows="10" cols="200"></textarea>
+            <br><br>
+            <input type="submit" value="Convert to LaTeX">
+        </form>
+        <div id="latex-code">
+            <p>LaTeX Code:</p>
+            <br>
+            <pre>{{ latex_code }}</pre>
+            <button id="copy-btn" onclick="copyCode()">Copy</button>
+        </div>
+    </div>
+    <a href="https://www.overleaf.com/">VISIT LaTeX ONLINE SERVICES</a>
+</body>
+</html>
